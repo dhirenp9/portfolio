@@ -80,7 +80,7 @@ section { scroll-margin-top: 72px; padding-block: clamp(56px, 9vw, 104px); borde
 
 /* Hero */
 .hero h1 { font-size: clamp(2rem, 6.2vw, 4.2rem); line-height: 1.1; letter-spacing: -0.02em; margin-top: 1.25rem; max-width: 20ch; }
-.hero h1 em { font-style: normal; color: var(--accent); }
+.hero h1 em { font-style: normal; color: var(--accent); white-space: nowrap; }
 .hero .lede { margin-top: 2rem; max-width: 62ch; font-size: clamp(1.05rem, 1.6vw, 1.2rem); color: #c9cfda; }
 .stats {
   margin-top: clamp(2.5rem, 5vw, 4rem);
@@ -114,6 +114,51 @@ section { scroll-margin-top: 72px; padding-block: clamp(56px, 9vw, 104px); borde
 .case h3 { font-size: clamp(1.3rem, 2.6vw, 1.8rem); line-height: 1.2; max-width: 30ch; }
 .case .intro { margin-top: 1rem; max-width: 62ch; color: #c9cfda; }
 .shot { margin: 1.25rem 0 0; }
+
+.hero { padding-block: clamp(36px, 5vw, 64px); }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+.hero h1 { font-size: clamp(2rem, 4.2vw, 3.1rem); margin-top: 1rem; max-width: 18ch; }
+.hero .lede { margin-top: 1.5rem; }
+.stats { margin-top: 0; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.stats .v { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+.stats .sub { font-size: 0.85rem; color: var(--muted); line-height: 1.35; }
+.bar nav { align-items: center; }
+.bar nav a.nav-cta { color: var(--accent); border: 1px solid var(--accent); border-radius: 4px; padding: 0.3rem 0.8rem; }
+.bar nav a.nav-cta:hover { background: var(--accent); color: var(--bg); }
+.pillars { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: minmax(0, 1fr); }
+  .stats { margin-top: 0.5rem; }
+}
+@media (max-width: 700px) { .pillars { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 560px) { .bar nav a.hide-sm { display: none; } }
+.row dd.wide { max-width: none; }
+.dg { margin-top: 1rem; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); padding: 1.1rem; display: flex; flex-direction: column; gap: 0.85rem; max-width: 780px; }
+.dg .cap { font-family: var(--mono); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); margin-right: 0.5rem; }
+.dg .cap.accent { color: var(--accent); margin: 0 0 0.6rem; display: block; }
+.dg-band { border: 1px dashed var(--line); border-radius: 4px; padding: 0.65rem 0.85rem; color: #d6dbe5; font-size: 0.92rem; }
+.dg-link { color: var(--muted); font-size: 0.88rem; display: flex; gap: 0.6rem; align-items: baseline; padding-left: 0.4rem; }
+.dg-link span { color: var(--accent); }
+.dg-link b { color: #d6dbe5; font-weight: 600; }
+.dg-team { border: 1px solid var(--accent); border-radius: 4px; padding: 0.85rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.dg-title { font-family: var(--display); font-weight: 700; font-size: 1.05rem; display: flex; flex-wrap: wrap; gap: 0.25rem 0.9rem; align-items: baseline; }
+.dg-title span { font-family: var(--mono); font-weight: 400; font-size: 0.78rem; color: var(--accent); }
+.dg-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); gap: 0.6rem; }
+.dg-col { border: 1px solid var(--line); border-radius: 4px; padding: 0.7rem 0.8rem; background: var(--bg); min-width: 0; }
+.dg-col b { font-weight: 600; font-size: 0.95rem; }
+.dg-found { display: flex; flex-direction: column; gap: 0.6rem; border: 1px dashed var(--line); border-radius: 4px; padding: 0.75rem 0.85rem; }
+.chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.chips li { border: 1px solid var(--line); border-radius: 999px; padding: 0.2rem 0.7rem; font-size: 0.85rem; color: #d6dbe5; background: var(--bg); }
+.phases { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 0.75rem; align-items: stretch; }
+.phase { border: 1px solid var(--line); border-radius: 4px; padding: 0.9rem; background: var(--bg); min-width: 0; }
+.phase ol { margin: 0; padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.5rem; color: #d6dbe5; font-size: 0.93rem; }
+.phase ol li::marker { font-family: var(--mono); color: var(--accent); }
+.dg-arrow { align-self: center; color: var(--accent); font-size: 1.4rem; }
+.dg-out { margin: 0; color: var(--accent); font-family: var(--mono); font-size: 0.85rem; }
+@media (max-width: 640px) {
+  .phases { grid-template-columns: minmax(0, 1fr); }
+  .dg-arrow { justify-self: center; transform: rotate(90deg); }
+}
 .shot.portrait img { aspect-ratio: 360 / 648; max-width: 280px; }
 .shot figcaption { margin-top: 0.6rem; font-size: 0.85rem; color: var(--muted); }
 .shot img { display: block; width: 100%; max-width: 560px; height: auto; aspect-ratio: 16 / 9; background: #000; border: 1px solid var(--line); border-radius: 6px; }
@@ -124,7 +169,7 @@ section { scroll-margin-top: 72px; padding-block: clamp(56px, 9vw, 104px); borde
 .metrics { display: flex; flex-wrap: wrap; gap: 1.25rem 2.75rem; }
 .metric { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; }
 .metric b { font-family: var(--display); font-weight: 700; font-size: clamp(2.1rem, 5vw, 3rem); line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
-.metric span { font-size: 0.88rem; color: var(--muted); max-width: 16ch; }
+.metric span { font-size: 0.88rem; color: var(--muted); max-width: 22ch; }
 
 /* Team and people */
 .people { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 0 clamp(2rem, 5vw, 4rem); }
@@ -154,6 +199,8 @@ section { scroll-margin-top: 72px; padding-block: clamp(56px, 9vw, 104px); borde
 .contact .mail { font-family: var(--mono); font-size: 1rem; color: var(--fg); overflow-wrap: anywhere; }
 .copy { font: 500 0.8rem var(--body); color: var(--fg); background: transparent; border: 1px solid var(--line); border-radius: 4px; padding: 0.4rem 0.75rem; cursor: pointer; }
 .copy:hover { border-color: var(--accent); color: var(--accent); }
+.dl { font: 500 0.85rem var(--body); color: var(--bg); background: var(--accent); border: 1px solid var(--accent); border-radius: 4px; padding: 0.45rem 0.9rem; text-decoration: none; }
+.dl:hover { background: transparent; color: var(--accent); }
 footer { padding-block: 2rem 3rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.85rem; }
 
 @media (max-width: 800px) {
@@ -174,10 +221,11 @@ img { max-width: 100%; }
   <div class="wrap">
     <a class="brand" href="#top">Dhiren Patel</a>
     <nav aria-label="Sections">
-      <a href="#approach">Approach</a>
+      <a class="hide-sm" href="#approach">Approach</a>
       <a href="#work">Work</a>
-      <a href="#teams">Teams</a>
-      <a href="#about">About</a>
+      <a class="hide-sm" href="#teams">Teams</a>
+      <a class="hide-sm" href="#about">About</a>
+      <a class="nav-cta" href="#contact">Contact</a>
     </nav>
   </div>
 </header>
@@ -185,15 +233,17 @@ img { max-width: 100%; }
 <main id="top">
 
 <section class="hero">
-  <div class="wrap">
-    <p class="label accent">Head of UX Design, Global Operations · Equinix</p>
-    <h1>Don’t just design interfaces. <em>Drive outcomes.</em></h1>
-    <p class="lede">I lead UX design for Global Operations at Equinix, where my team of 11 designers shapes the experience of the IBX operations platform. We begin with visioning workshops that align stakeholders and end users, then work agents-first on top of our design system, research, and service design principles. An agent we built turns designs into working React front ends that engineering connects to the back end. The results so far: a 15-point gain in UX Lite, 30% less time to build, and 70% more observability for our customers.</p>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="label accent">Head of UX Design, Global Operations · Equinix</p>
+      <h1>Design teams that think in systems and <em>ship with agents.</em></h1>
+      <p class="lede">I lead 11 designers across service design, research, and product design at Equinix, shaping the 11 tools that run Global Operations. We rebuilt the IBX data center operations platform with an agent-first workflow that takes design to a working React front end in under a week.</p>
+    </div>
     <div class="stats">
-      <div><span class="label">Team</span><span class="v">11 designers</span></div>
-      <div><span class="label">Scope</span><span class="v">11 Global Ops tools</span></div>
-      <div><span class="label">Partners</span><span class="v">Operations, Business, Engineering</span></div>
-      <div><span class="label">Impact</span><span class="v hot">+15 pts UX Lite</span></div>
+      <div><span class="label">UX Lite</span><span class="v hot">61 → 76</span><span class="sub">usability score, up 15 points</span></div>
+      <div><span class="label">Time to build</span><span class="v hot">−30%</span><span class="sub">IBX platform rebuild</span></div>
+      <div><span class="label">Observability</span><span class="v hot">+70%</span><span class="sub">customers see exactly where their build stands</span></div>
+      <div><span class="label">Designers</span><span class="v">11</span><span class="sub">service design, research, product design</span></div>
     </div>
   </div>
 </section>
@@ -203,7 +253,7 @@ img { max-width: 100%; }
     <div class="head">
       <p class="label accent">Leadership approach</p>
       <h2>How I lead, in four commitments</h2>
-      <p>I lead with empathy. Instead of resisting the flow of change, I guide it. I bring stakeholders and end users into the same room for visioning, build on systems thinking, and coach my designers to hold a clear point of view while listening to business and user needs alike. Throughout, design is the experience layer that keeps product, business, and engineering moving together.</p>
+      <p>My team starts every initiative with a visioning workshop that puts stakeholders and end users in the same room. We design with systems thinking, and I coach designers to hold a clear point of view while listening to business and user needs alike.</p>
     </div>
     <div class="pillars">
       <article>
@@ -219,8 +269,8 @@ img { max-width: 100%; }
         <p>I coach designers to hold a strong point of view on the experience and to be the experts in the room, while listening just as closely to business needs as to user needs. So far, I have hired 6 designers and 2 have been promoted.</p>
       </article>
       <article>
-        <h3>Influence across the table</h3>
-        <p>I champion alignment between product, business, and engineering. Design is the connective tissue, the experience layer that ties their goals together, and through visioning we help shape the roadmap.</p>
+        <h3>Align product, business, and engineering</h3>
+        <p>Design is the experience layer that connects what product, business, and engineering each want to achieve. Through visioning, we help shape the roadmap.</p>
       </article>
     </div>
   </div>
@@ -242,15 +292,61 @@ img { max-width: 100%; }
       </div>
       <div>
         <h3>Rebuilding the IBX ops platform experience, from low code to React</h3>
-        <p class="intro">The IBX operations platform ran on low code, which limited usability and slowed every change. We rebuilt the experience in React and changed how the design team works at the same time: agents first, on top of our design system, research and service design principles. The goal was a better experience for the people using it, a shorter path from idea to shipped, and more transparency for the customer.</p>
+        <p class="intro">The IBX data center operations platform ran on low code, which limited usability and slowed every change. We rebuilt the experience in React and changed how the design team works at the same time: agents first, on top of our design system, research and service design principles. The goal was a better experience for the people using it, a shorter path from idea to shipped, and more transparency for the customer.</p>
         <dl class="rows">
-          <div class="row"><dt class="label">What I put in place</dt><dd>An agents-first operating model for the design team, built on three foundations: the Equinix design system, ongoing research, and service design principles. I created an agent that builds a fully functioning front end from React components, which engineering takes and connects to the back end. Design hands off working code instead of static specs.</dd></div>
-          <div class="row"><dt class="label">How I managed to outcomes</dt><dd>I keep the team moving toward outcomes through a steady rhythm: staff calls to share context and priorities, 1:1s to coach and unblock each designer, and squad syncs to track progress on the work. When a difficult moment comes up, I start with alignment and open communication, and I escalate when that is not enough.</dd></div>
+          <div class="row"><dt class="label">What I put in place</dt><dd>An agents-first operating model for the design team, built on three foundations: the Equinix design system, ongoing research, and service design principles. My team built an agent that creates a fully functioning front end from React components, which engineering takes and connects to the back end. Design hands off working code instead of static specs.</dd></div>
+          <div class="row"><dt class="label">How the team is set up</dt><dd class="wide">
+            A staffing strategy and operating model map the design team to the company’s strategic value streams. Shared practices and a shared design system sit underneath every stream.
+            <div class="dg" role="group" aria-label="Operating model diagram">
+              <div class="dg-band"><span class="cap">Company</span> Strategic value streams</div>
+              <div class="dg-link"><span aria-hidden="true">↓</span> Staffing strategy maps designers to the value streams</div>
+              <div class="dg-team">
+                <div class="dg-title">Global Operations design team <span>11 designers</span></div>
+                <div class="dg-cols">
+                  <div class="dg-col"><b>Service design</b></div>
+                  <div class="dg-col"><b>UX research</b></div>
+                  <div class="dg-col"><b>Product design</b></div>
+                </div>
+              </div>
+              <div class="dg-link"><span aria-hidden="true">↔</span> Partners closely with <b>Engineering</b> and <b>Product</b></div>
+              <div class="dg-found">
+                <span class="cap">Shared foundation</span>
+                <ul class="chips">
+                  <li>Equinix design system</li><li>OOUX</li><li>Systems thinking</li><li>Agent-first sprints</li><li>Weekly design reviews</li><li>Continuous discovery</li><li>Experience measurement (rolling out)</li>
+                </ul>
+              </div>
+            </div></dd></div>
+          <div class="row"><dt class="label">How a sprint runs</dt><dd class="wide">
+            Each sprint runs two to three weeks, in two phases. People lead the first, and our agent does the heavy lifting in the second.
+            <div class="dg" role="group" aria-label="Agent-first sprint flow diagram">
+              <div class="dg-band"><span class="cap">Grounded in</span> The Equinix design system · Ongoing research · Service design principles</div>
+              <div class="phases">
+                <div class="phase">
+                  <span class="cap accent">Define · led by designers</span>
+                  <ol>
+                    <li>Visioning workshop with stakeholders and end users</li>
+                    <li>Persona and role work</li>
+                    <li>Concepting</li>
+                  </ol>
+                </div>
+                <div class="dg-arrow" aria-hidden="true">→</div>
+                <div class="phase">
+                  <span class="cap accent">Build · agent-assisted</span>
+                  <ol start="4">
+                    <li>Our agent generates production-ready React components from the designs</li>
+                    <li>Engineering connects the front end to the back end</li>
+                  </ol>
+                </div>
+              </div>
+              <div class="dg-band"><span class="cap">Throughout</span> Weekly design reviews · Continuous discovery</div>
+              <p class="dg-out">Result: design to working front end in under a week.</p>
+            </div></dd></div>
+          <div class="row"><dt class="label">How I run the team</dt><dd>I keep the team moving toward outcomes through a steady rhythm: staff calls to share context and priorities, 1:1s to coach and unblock each designer, and squad syncs to track progress on the work. When a difficult moment comes up, I start with alignment and open communication, and I escalate when that is not enough.</dd></div>
           <div class="row"><dt class="label">Results</dt><dd>
             <div class="metrics">
-              <div class="metric"><b>+15 pts</b><span>UX Lite usability score</span></div>
+              <div class="metric"><b>61 → 76</b><span>UX Lite usability score, up 15 points</span></div>
               <div class="metric"><b>30%</b><span>Reduction in time to build</span></div>
-              <div class="metric"><b>70%</b><span>More observability for the customer</span></div>
+              <div class="metric"><b>70%</b><span>More observability: customers see exactly where their build stands</span></div>
             </div></dd></div>
           <div class="row"><dt class="label">The team</dt><dd>Adnan Husain, Lead UX Designer. Tina Tran, UX Researcher. Ekta Shah, Service Design.</dd></div>
           <div class="row"><dt class="label">What I would change</dt><dd>I would run a visioning workshop first, before any build time, to align everyone on the experience we want for each data center persona.</dd></div>
@@ -335,7 +431,7 @@ img { max-width: 100%; }
       <article><h3>Set the strategy</h3><p>Created a staffing strategy and operating model mapped to the company’s strategic value streams, spanning service design, research, and product design.</p></article>
       <article><h3>Brought AI into the workflow</h3><p>Built agents that automate routine work such as accessibility and UX audits, and enabled designers to build functional AI-generated front ends for testing.</p></article>
       <article><h3>Measured experience quality</h3><p>Implementing a framework for measuring experience quality across our product experiences.</p></article>
-      <article><h3>Built a culture of ownership</h3><p>Established OOUX and systems thinking as team practice, so the team acts as the expert voice on experience.</p></article>
+      <article><h3>Built a culture of ownership</h3><p>Established object-oriented UX (OOUX) and systems thinking as team practice, so the team acts as the expert voice on experience.</p></article>
     </div>
   </div>
 </section>
@@ -394,6 +490,7 @@ img { max-width: 100%; }
     <div class="lines">
       <span class="mail" id="mail">dhirenp9@gmail.com</span>
       <button class="copy" id="copy-mail" type="button">Copy email</button>
+      <a class="dl" href="Dhiren-Patel-Resume.pdf" download>Download resume (PDF)</a>
       <a href="https://www.linkedin.com/in/dhirenpatel9/">linkedin.com/in/dhirenpatel9</a>
     </div>
   </div>
